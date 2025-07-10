@@ -1,0 +1,36 @@
+﻿@model List<Bank.Web.Models.AccountVm>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Accounts</h1>
+
+<table class="table">
+    <tr>
+        <th>#</th>
+        <th>Id</th>
+        <th>Type</th>
+    </tr>
+
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <tr>
+            <td>@(i+1)</td>
+            <td>@Model[i].Type</td>
+        </tr>
+    }
+</table>
+
+<h2>Ajouter un compte</h2>
+
+<form asp-action="Create" method="post">
+    <input name="Name" type="number" placeholder="Nom" required />
+    <input name="Type" placeholder="Type de compte" />
+    <input type="submit" value="Ajouter" />
+</form>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
